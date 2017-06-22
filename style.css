@@ -1,0 +1,47 @@
+html, body {
+    height: auto;
+    width: 100%;
+    margin: auto;
+    border: auto;
+    overflow-x: hidden !important;
+}
+
+h1 {
+    margin: 0px;
+    border: 0px;
+}
+
+.curnav {
+    border-bottom-width: 2px; 
+    border-bottom-style: solid;
+}
+
+.graph-label {
+    font-weight: bold; 
+    font-size: 15; 
+    font-family: Roboto,Helvetica Neue,sans-serif;
+}
+
+.skill-line {
+    stroke: rgb(255,255,255);
+    stroke-width: 2;
+    opacity: 0.5;
+}
+
+.bar-label {
+    font-weight: bold; 
+    font-size: 20; 
+    font-family: Roboto,Helvetica Neue,sans-serif;
+}
+
+.skill-bar {
+    fill: yellow;
+    stroke: black;
+    stroke-width: 2;
+    height: 0px;
+    width: 25px;
+    opacity: 1.0;
+    -webkit-transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+    transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+    /*animation: going-up 0.6s ease-in-out;*/
+}

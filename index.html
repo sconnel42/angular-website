@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="bar-heights.css"/>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-sticky/dist/angular-sticky.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
+    <div layout="row" id="navbar" hl-sticky="" style="background-color: #009600;">
+        <md-toolbar class="md-toolbar-tools" flex>
+            <h2> Sean Connelly </h2>
+            <div layout="row" layout-align="end" flex>
+                <md-button id="aboutnav" class="curnav" ng-click="changeNav('about')">About</md-button>
+                <md-button id="skillsnav" ng-click="changeNav('skills')">Skills</md-button>
+                <md-button id="projectsnav" ng-click="changeNav('projects')">Projects</md-button>
+                <md-button id="contactnav" ng-click="changeNav('contact')">Contact</md-button>
+            </div>
+        </md-toolbar>
+    </div>
+
+    <md-content layout-gt-sm="column" layout-padding id="about" style="background-color: #1e74ff; color: white;">
+        <div layout="column" layout-padding layout-align="center center" flex>
+            <h1>Sean Connelly</h1>
+            <div layout="row" layout-xs="column" layout-sm="column" layout-padding layout-align="top center">
+                <div layout="column" layout-padding layout-align="center center" style="padding: 0 5%" flex-order="1" flex-order-xs="2" flex-order-sm="2">
+                    <div layout-padding style="padding: 0 5%">
+                        <p style="font-size:20px;"> Hi there! My name is Sean Connelly, and I am a software developer. I am most experienced in Back-end Development, but I also do a lot of Frontend Development as well. I specialize in Python, C++, and Javascript, but am familiar with many, many more languages. In my free time, I run and rock climb, and am an avid board gamer. If you'd like to learn more about me, keep on reading!
+                        </p>
+                    </div>
+                    <md-button href="uploads/Resume_June_2016.pdf" style="background-color: white; color: black;">Resume</md-button>
+                </div>
+                <div flex-order="2" flex-order-xs="1" flex-order-sm="1">
+                    <img src="imgs/sean.jpg" style="max-height: 480px; width: auto;"/>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+    <md-content layout-gt-sm="column" layout-padding id="skills" style="overflow: hidden !important; background-color: #33cc33; color: white;">
+        <div layout="column" layout-padding layout-align="center center" flex>
+            <h1> Career Path</h1>
+        </div>
+        <div id="scont" layout="row" layout-align="center center" layout-padding style="height:6250px;overflow-x:none;overflow-y:none;">
+            <div layout="row" id="user{{user.id}}" ng-repeat="user in users" style="height:40%; left:1000px; top:80px; font-size: 2.5vh; position: fixed;">
+                <md-card style="height:100%; width:200px; font-size: 2.5vh;">
+                <md-card-content>
+                <h3>{{user.title}}</h3>
+                <p style="font-size: 14px;">{{user.text}}</p>
+                </md-card-content>
+                <div class="md-actions" layout="row" layout-align="end center" style="top:5%;">
+                    <md-button>Explore</md-button>
+                </div>
+                </md-card>
+                <div style="width:500px; padding-left: 20px;">
+                    <h2>{{user.righttext}}</h2>
+                    <ul style="font-size:16px;">
+                        <li ng-repeat="detail in user.details">{{detail.item}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="skbox" style="position:fixed; top:1000px; left:50px;">
+                    <svg width=825 height=555>
+                        <text x="10" y="305" fill="white" class="graph-label">Zilch</text>
+                        <text x="10" y="255" fill="white" class="graph-label">Novice</text>
+                        <text x="10" y="205" fill="white" style="graph-label">Intermediate</text>
+                        <text x="10" y="155" fill="white" style="graph-label">Advanced</text>
+                        <text x="10" y="105" fill="white" style="graph-label">Expert</text>
+                        <line x1="110" y1="100" x2="815" y2="100" class="skill-line" />
+                        <line x1="110" y1="150" x2="815" y2="150" class="skill-line" />
+                        <line x1="110" y1="200" x2="815" y2="200" class="skill-line" />
+                        <line x1="110" y1="250" x2="815" y2="250" class="skill-line" />
+                        <line x1="110" y1="300" x2="815" y2="300" class="skill-line" />
+                    </svg> 
+                </div>
+        </div>
+    </md-content>
+
+    <md-content layout-gt-sm="column" layout-padding id="projects" style="background-color: #ff0000; color: white;">
+        <div layout="column" layout-padding layout-align="center center"  flex>
+            <h1> Projects</h1>
+            <md-card style="width: 75%;">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline" flex>Interactive Solar System</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p> A simulation of a solar system! You can choose the size of the planets and drag and drop them on the canvas
+                        in order to see how they would react in an actual astronomical setting!
+                    </p>
+                </md-card-content>
+                <md-card-actions layout="column" layout-align="end end">
+                    <md-button>Explore</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-content>
+
+    <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding id="contact">
+        <div layout="column" layout-padding layout-align="center center" flex>
+            <h1 style="color: white;"> Contact</h1>
+            <div layout="row" layout-xs="column" layout-padding layout-align="center center" flex>
+                <div layout="column" layout-padding layout-align="center center" flex>
+                    <md-input-container>
+                        <label>Name</label>
+                        <input ng-model="contact.name">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Email</label>
+                        <input ng-model="contact.email">
+                    </md-input-container>
+                </div>
+                <md-input-container>
+                    <label>Message</label>
+                    <textarea ng-model="contact.message" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
+            <md-button ng-click="toTop();">Submit</md-button>
+        </div>
+    </md-content>
+
+    <script src="index-controller.js"></script>
+</body>
+</html>
